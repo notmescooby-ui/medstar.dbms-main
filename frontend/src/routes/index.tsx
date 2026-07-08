@@ -5,7 +5,10 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "MEDSTAR — Hospital Operations System" },
-      { name: "description", content: "Internal staff portal for MEDSTAR Multispeciality Hospital." },
+      {
+        name: "description",
+        content: "Internal staff portal for MEDSTAR Multispeciality Hospital.",
+      },
     ],
   }),
   component: Landing,

@@ -3,7 +3,10 @@ import { cn } from "@/lib/utils";
 
 /* --------- Page header --------- */
 export function PageHeader({
-  eyebrow, title, description, actions,
+  eyebrow,
+  title,
+  description,
+  actions,
 }: {
   eyebrow?: string;
   title: string;
@@ -28,8 +31,16 @@ export function PageHeader({
 
 /* --------- Summary tile (no charts) --------- */
 export function SummaryTile({
-  label, value, hint, accent,
-}: { label: string; value: string | number; hint?: string; accent?: "gold" | "sage" }) {
+  label,
+  value,
+  hint,
+  accent,
+}: {
+  label: string;
+  value: string | number;
+  hint?: string;
+  accent?: "gold" | "sage";
+}) {
   return (
     <div className="group relative flex flex-col justify-between rounded-lg border border-hairline bg-card p-6 transition-shadow hover:shadow-[var(--shadow-quiet)]">
       <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
@@ -53,8 +64,16 @@ export function SummaryTile({
 
 /* --------- Section --------- */
 export function Section({
-  title, description, action, children,
-}: { title: string; description?: string; action?: ReactNode; children: ReactNode }) {
+  title,
+  description,
+  action,
+  children,
+}: {
+  title: string;
+  description?: string;
+  action?: ReactNode;
+  children: ReactNode;
+}) {
   return (
     <section className="mt-14">
       <div className="mb-5 flex items-end justify-between gap-4">
@@ -76,13 +95,18 @@ export function Chip({ label, tone = "neutral" }: { label: string; tone?: ChipTo
     neutral: "bg-secondary text-secondary-foreground",
     success: "bg-[color:var(--success)]/10 text-[color:var(--success)]",
     warning: "bg-[color:var(--warning)]/12 text-[color:oklch(0.42_0.08_70)]",
-    danger:  "bg-[color:var(--destructive)]/10 text-[color:var(--destructive)]",
-    gold:    "bg-[color:var(--gold)]/15 text-[color:oklch(0.35_0.05_75)]",
-    sage:    "bg-[color:var(--primary)]/10 text-[color:var(--primary)]",
-    info:    "bg-[oklch(0.9_0.02_240)] text-[oklch(0.35_0.08_240)]",
+    danger: "bg-[color:var(--destructive)]/10 text-[color:var(--destructive)]",
+    gold: "bg-[color:var(--gold)]/15 text-[color:oklch(0.35_0.05_75)]",
+    sage: "bg-[color:var(--primary)]/10 text-[color:var(--primary)]",
+    info: "bg-[oklch(0.9_0.02_240)] text-[oklch(0.35_0.08_240)]",
   };
   return (
-    <span className={cn("inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium tracking-tight", styles[tone])}>
+    <span
+      className={cn(
+        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium tracking-tight",
+        styles[tone],
+      )}
+    >
       <span className="h-1.5 w-1.5 rounded-full bg-current opacity-70" />
       {label}
     </span>
@@ -91,7 +115,9 @@ export function Chip({ label, tone = "neutral" }: { label: string; tone?: ChipTo
 
 /* --------- Data table --------- */
 export function DataTable<T>({
-  columns, rows, empty,
+  columns,
+  rows,
+  empty,
 }: {
   columns: { key: string; header: string; render?: (row: T) => ReactNode; className?: string }[];
   rows: T[];
@@ -104,19 +130,36 @@ export function DataTable<T>({
           <thead>
             <tr className="border-b border-hairline text-left text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
               {columns.map((c) => (
-                <th key={c.key} className={cn("px-5 py-3.5 font-semibold", c.className)}>{c.header}</th>
+                <th key={c.key} className={cn("px-5 py-3.5 font-semibold", c.className)}>
+                  {c.header}
+                </th>
               ))}
             </tr>
           </thead>
           <tbody>
             {rows.length === 0 && (
-              <tr><td colSpan={columns.length} className="px-5 py-10 text-center text-sm text-muted-foreground">{empty ?? "Nothing here yet."}</td></tr>
+              <tr>
+                <td
+                  colSpan={columns.length}
+                  className="px-5 py-10 text-center text-sm text-muted-foreground"
+                >
+                  {empty ?? "Nothing here yet."}
+                </td>
+              </tr>
             )}
             {rows.map((row, i) => (
-              <tr key={i} className="border-b border-hairline/70 last:border-b-0 transition-colors hover:bg-secondary/60">
+              <tr
+                key={i}
+                className="border-b border-hairline/70 last:border-b-0 transition-colors hover:bg-secondary/60"
+              >
                 {columns.map((c) => (
-                  <td key={c.key} className={cn("px-5 py-4 align-top text-foreground/90", c.className)}>
-                    {c.render ? c.render(row) : String((row as Record<string, unknown>)[c.key] ?? "")}
+                  <td
+                    key={c.key}
+                    className={cn("px-5 py-4 align-top text-foreground/90", c.className)}
+                  >
+                    {c.render
+                      ? c.render(row)
+                      : String((row as Record<string, unknown>)[c.key] ?? "")}
                   </td>
                 ))}
               </tr>

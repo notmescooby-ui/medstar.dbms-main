@@ -46,7 +46,7 @@
   --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
 
   --shadow-hairline: 0 0 0 1px oklch(0.2 0.005 60 / 0.06);
-  --shadow-quiet: 0 1px 0 0 oklch(0.2 0.005 60 / 0.04), 0 12px 32px -20px oklch(0.2 0.005 60 / 0.10);
+  --shadow-quiet: 0 1px 0 0 oklch(0.2 0.005 60 / 0.04), 0 12px 32px -20px oklch(0.2 0.005 60 / 0.1);
   --shadow-lift: 0 1px 0 0 oklch(0.2 0.005 60 / 0.04), 0 24px 56px -28px oklch(0.2 0.005 60 / 0.18);
 }
 
@@ -54,8 +54,8 @@
   --radius: 0.75rem;
 
   /* MHOS palette — warm stone, deep espresso sidebar, sage + gold accents */
-  --background: oklch(0.966 0.006 80);            /* #F7F5F2 */
-  --foreground: oklch(0.235 0.005 60);            /* #222222 */
+  --background: oklch(0.966 0.006 80); /* #F7F5F2 */
+  --foreground: oklch(0.235 0.005 60); /* #222222 */
 
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.235 0.005 60);
@@ -63,9 +63,9 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.235 0.005 60);
 
-  --primary: oklch(0.52 0.024 145);               /* #687864 sage */
+  --primary: oklch(0.52 0.024 145); /* #687864 sage */
   --primary-foreground: oklch(0.98 0.004 90);
-  --gold: oklch(0.75 0.075 85);                   /* #C6A969 */
+  --gold: oklch(0.75 0.075 85); /* #C6A969 */
   --gold-foreground: oklch(0.25 0.03 70);
 
   --secondary: oklch(0.95 0.006 80);
@@ -88,7 +88,7 @@
   --ring: oklch(0.52 0.024 145);
 
   /* Sidebar — espresso */
-  --sidebar: oklch(0.27 0.012 45);                /* #3A302B */
+  --sidebar: oklch(0.27 0.012 45); /* #3A302B */
   --sidebar-foreground: oklch(0.88 0.008 80);
   --sidebar-muted: oklch(0.66 0.01 60);
   --sidebar-border: oklch(0.35 0.012 45);
@@ -96,7 +96,9 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
+  * {
+    border-color: var(--color-border);
+  }
   html {
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -107,9 +109,19 @@
     color: var(--color-foreground);
     font-feature-settings: "ss01", "cv11";
   }
-  h1, h2, h3, h4 { letter-spacing: -0.02em; font-weight: 600; }
-  h1 { font-weight: 500; }
-  ::selection { background: oklch(0.75 0.075 85 / 0.35); }
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+  h1 {
+    font-weight: 500;
+  }
+  ::selection {
+    background: oklch(0.75 0.075 85 / 0.35);
+  }
 }
 
 @utility hairline {
@@ -144,12 +156,26 @@
 }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-@utility animate-fade-up { animation: fade-up 500ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-@utility animate-fade-in { animation: fade-in 400ms ease-out both; }
+@utility animate-fade-up {
+  animation: fade-up 500ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@utility animate-fade-in {
+  animation: fade-in 400ms ease-out both;
+}

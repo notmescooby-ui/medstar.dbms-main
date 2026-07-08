@@ -8,7 +8,7 @@ import type { LucideIcon } from "lucide-react";
 
 export interface NavItem {
   label: string;
-  slug: string;   // "" for dashboard index
+  slug: string; // "" for dashboard index
   icon: LucideIcon;
   group?: string;
 }
@@ -72,8 +72,9 @@ export function AppShell({ user, role, nav, children }: AppShellProps) {
               <div className="space-y-0.5">
                 {items.map((item) => {
                   const href = `/app/${role}${item.slug ? `/${item.slug}` : ""}`;
-                  const active = location.pathname === href
-                    || (item.slug === "" && location.pathname === `/app/${role}`);
+                  const active =
+                    location.pathname === href ||
+                    (item.slug === "" && location.pathname === `/app/${role}`);
                   return (
                     <Link
                       key={item.label}
@@ -85,7 +86,14 @@ export function AppShell({ user, role, nav, children }: AppShellProps) {
                           : "text-sidebar-foreground/85 hover:bg-sidebar-accent/60 hover:text-white",
                       )}
                     >
-                      <item.icon className={cn("h-[15px] w-[15px] shrink-0", active ? "text-[color:var(--gold)]" : "text-sidebar-muted group-hover:text-sidebar-foreground")} />
+                      <item.icon
+                        className={cn(
+                          "h-[15px] w-[15px] shrink-0",
+                          active
+                            ? "text-[color:var(--gold)]"
+                            : "text-sidebar-muted group-hover:text-sidebar-foreground",
+                        )}
+                      />
                       <span className="truncate">{item.label}</span>
                     </Link>
                   );
@@ -97,9 +105,13 @@ export function AppShell({ user, role, nav, children }: AppShellProps) {
 
         <div className="mx-6 border-t border-sidebar-border" />
         <div className="px-6 py-5">
-          <div className="text-[10px] uppercase tracking-[0.18em] text-sidebar-muted">Signed in</div>
+          <div className="text-[10px] uppercase tracking-[0.18em] text-sidebar-muted">
+            Signed in
+          </div>
           <div className="mt-1.5 text-[13.5px] font-medium text-white">{user.name}</div>
-          <div className="text-xs text-sidebar-muted">{meta.title} · {user.department}</div>
+          <div className="text-xs text-sidebar-muted">
+            {meta.title} · {user.department}
+          </div>
           <button
             onClick={signOut}
             className="mt-4 inline-flex items-center gap-2 text-xs text-sidebar-muted hover:text-white"
@@ -140,11 +152,19 @@ export function AppShell({ user, role, nav, children }: AppShellProps) {
                   {new Date().toLocaleDateString(undefined, { weekday: "long" })}
                 </div>
                 <div className="text-sm text-foreground">
-                  {new Date().toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" })}
+                  {new Date().toLocaleDateString(undefined, {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
                 </div>
               </div>
               <div className="grid h-9 w-9 place-items-center rounded-full bg-[color:var(--sidebar)] text-xs font-semibold text-white">
-                {user.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
+                {user.name
+                  .split(" ")
+                  .map((n) => n[0])
+                  .slice(0, 2)
+                  .join("")}
               </div>
             </div>
           </div>

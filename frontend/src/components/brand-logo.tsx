@@ -20,12 +20,18 @@ const sizeMap = {
 };
 
 export function BrandLogo({
-  className, showWord = true, size = "md", as = "link", tone = "default",
+  className,
+  showWord = true,
+  size = "md",
+  as = "link",
+  tone = "default",
 }: LogoProps) {
   const s = sizeMap[size];
   const Wrapper = ({ children }: { children: ReactNode }) =>
     as === "link" ? (
-      <Link to="/" className={cn("inline-flex items-center gap-3", className)}>{children}</Link>
+      <Link to="/" className={cn("inline-flex items-center gap-3", className)}>
+        {children}
+      </Link>
     ) : (
       <div className={cn("inline-flex items-center gap-3", className)}>{children}</div>
     );
@@ -39,9 +45,7 @@ export function BrandLogo({
       <MedstarMark className={cn(s.mark, markColor)} />
       {showWord && (
         <div className="flex flex-col leading-tight">
-          <span className={cn("serif-display", s.word, wordColor)}>
-            MEDSTAR
-          </span>
+          <span className={cn("serif-display", s.word, wordColor)}>MEDSTAR</span>
           <span className={cn("uppercase tracking-[0.22em]", s.tag, tagColor)}>
             Hospital Operations
           </span>

@@ -1,9 +1,27 @@
 import type { NavItem } from "@/components/app-shell";
 import {
-  LayoutGrid, Users, Briefcase, Building2, ShieldCheck, CalendarClock,
-  Calendar, Wallet, Megaphone, ScrollText, FileBarChart2, Settings,
-  BedDouble, Boxes, ClipboardList, Activity, Stethoscope, HeartPulse,
-  FileText, ArrowLeftRight, ListChecks, History,
+  LayoutGrid,
+  Users,
+  Briefcase,
+  Building2,
+  ShieldCheck,
+  CalendarClock,
+  Calendar,
+  Wallet,
+  Megaphone,
+  ScrollText,
+  FileBarChart2,
+  Settings,
+  BedDouble,
+  Boxes,
+  ClipboardList,
+  Activity,
+  Stethoscope,
+  HeartPulse,
+  FileText,
+  ArrowLeftRight,
+  ListChecks,
+  History,
 } from "lucide-react";
 import type { UserRole } from "@/lib/auth";
 

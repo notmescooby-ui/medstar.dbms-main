@@ -12,14 +12,18 @@ function LoginIndex() {
       <header className="border-b border-hairline">
         <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-6 md:px-10">
           <BrandLogo size="md" />
-          <Link to="/" className="text-xs text-muted-foreground hover:text-foreground">← Back</Link>
+          <Link to="/" className="text-xs text-muted-foreground hover:text-foreground">
+            ← Back
+          </Link>
         </div>
       </header>
       <section className="mx-auto flex w-full max-w-[1100px] flex-1 flex-col justify-center px-6 py-16 md:px-10">
         <div className="max-w-2xl">
           <div className="eyebrow">Sign in</div>
           <h1 className="serif-display mt-3 text-[44px] leading-tight">Choose your department.</h1>
-          <p className="mt-3 text-[15px] text-muted-foreground">Every department has its own workspace, roster and audit trail.</p>
+          <p className="mt-3 text-[15px] text-muted-foreground">
+            Every department has its own workspace, roster and audit trail.
+          </p>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {/* Director */}
@@ -34,10 +38,13 @@ function LoginIndex() {
             <div className="mt-24">
               <div className="eyebrow">Department</div>
               <div className="serif-display mt-2 text-3xl">Director</div>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Executive oversight of the hospital.</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Executive oversight of the hospital.
+              </p>
             </div>
             <div className="mt-8 flex items-center text-xs font-medium text-[color:var(--primary)]">
-              Continue <span className="ml-2 transition-transform group-hover:translate-x-0.5">→</span>
+              Continue{" "}
+              <span className="ml-2 transition-transform group-hover:translate-x-0.5">→</span>
             </div>
           </Link>
 
@@ -52,10 +59,13 @@ function LoginIndex() {
             <div className="mt-24">
               <div className="eyebrow">Department</div>
               <div className="serif-display mt-2 text-3xl">Reception</div>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Front desk, nursing and clinical floor.</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Front desk, nursing and clinical floor.
+              </p>
             </div>
             <div className="mt-8 flex items-center text-xs font-medium text-[color:var(--primary)]">
-              Continue <span className="ml-2 transition-transform group-hover:translate-x-0.5">→</span>
+              Continue{" "}
+              <span className="ml-2 transition-transform group-hover:translate-x-0.5">→</span>
             </div>
           </Link>
 
@@ -71,10 +81,13 @@ function LoginIndex() {
             <div className="mt-24">
               <div className="eyebrow">Department</div>
               <div className="serif-display mt-2 text-3xl">TPA</div>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Insurance desk — claims and approvals.</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Insurance desk — claims and approvals.
+              </p>
             </div>
             <div className="mt-8 flex items-center text-xs font-medium text-[color:var(--primary)]">
-              Continue <span className="ml-2 transition-transform group-hover:translate-x-0.5">→</span>
+              Continue{" "}
+              <span className="ml-2 transition-transform group-hover:translate-x-0.5">→</span>
             </div>
           </Link>
         </div>

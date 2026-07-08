@@ -21,7 +21,10 @@ function RoleLayout() {
 
   useEffect(() => {
     const s = getSession();
-    if (!s) { nav({ to: "/login", replace: true }); return; }
+    if (!s) {
+      nav({ to: "/login", replace: true });
+      return;
+    }
     if (s.role !== roleKey) {
       nav({ to: "/app/$role", params: { role: s.role }, replace: true });
       return;
