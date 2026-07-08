@@ -6,12 +6,6 @@ export const Route = createFileRoute("/login/")({
   component: LoginIndex,
 });
 
-const CARDS = [
-  { key: "director", to: "/login/director", title: "Director", note: "Executive oversight of the hospital.", icon: Briefcase },
-  { key: "reception", to: "/login/reception", title: "Reception", note: "Front desk, nursing and clinical floor.", icon: Building2 },
-  { key: "tpa", to: "/login/tpa", title: "TPA", note: "Insurance desk — claims and approvals.", icon: ShieldCheck },
-] as const;
-
 function LoginIndex() {
   return (
     <main className="flex min-h-screen flex-col bg-background">
@@ -28,25 +22,61 @@ function LoginIndex() {
           <p className="mt-3 text-[15px] text-muted-foreground">Every department has its own workspace, roster and audit trail.</p>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {CARDS.map((c) => (
-            <Link
-              key={c.key}
-              to={c.to}
-              className="group flex flex-col justify-between rounded-lg border border-hairline bg-card p-8 transition hover:border-[color:var(--primary)]/40 hover:shadow-[var(--shadow-quiet)]"
-            >
-              <div className="grid h-12 w-12 place-items-center rounded-md border border-hairline text-[color:var(--primary)]">
-                <c.icon className="h-5 w-5" />
-              </div>
-              <div className="mt-24">
-                <div className="eyebrow">Department</div>
-                <div className="serif-display mt-2 text-3xl">{c.title}</div>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.note}</p>
-              </div>
-              <div className="mt-8 flex items-center text-xs font-medium text-[color:var(--primary)]">
-                Continue <span className="ml-2 transition-transform group-hover:translate-x-0.5">→</span>
-              </div>
-            </Link>
-          ))}
+          {/* Director */}
+          <Link
+            to="/login/$role"
+            params={{ role: "director" }}
+            className="group flex flex-col justify-between rounded-lg border border-hairline bg-card p-8 transition hover:border-[color:var(--primary)]/40 hover:shadow-[var(--shadow-quiet)]"
+          >
+            <div className="grid h-12 w-12 place-items-center rounded-md border border-hairline text-[color:var(--primary)]">
+              <Briefcase className="h-5 w-5" />
+            </div>
+            <div className="mt-24">
+              <div className="eyebrow">Department</div>
+              <div className="serif-display mt-2 text-3xl">Director</div>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Executive oversight of the hospital.</p>
+            </div>
+            <div className="mt-8 flex items-center text-xs font-medium text-[color:var(--primary)]">
+              Continue <span className="ml-2 transition-transform group-hover:translate-x-0.5">→</span>
+            </div>
+          </Link>
+
+          {/* Reception */}
+          <Link
+            to="/login/reception"
+            className="group flex flex-col justify-between rounded-lg border border-hairline bg-card p-8 transition hover:border-[color:var(--primary)]/40 hover:shadow-[var(--shadow-quiet)]"
+          >
+            <div className="grid h-12 w-12 place-items-center rounded-md border border-hairline text-[color:var(--primary)]">
+              <Building2 className="h-5 w-5" />
+            </div>
+            <div className="mt-24">
+              <div className="eyebrow">Department</div>
+              <div className="serif-display mt-2 text-3xl">Reception</div>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Front desk, nursing and clinical floor.</p>
+            </div>
+            <div className="mt-8 flex items-center text-xs font-medium text-[color:var(--primary)]">
+              Continue <span className="ml-2 transition-transform group-hover:translate-x-0.5">→</span>
+            </div>
+          </Link>
+
+          {/* TPA */}
+          <Link
+            to="/login/$role"
+            params={{ role: "tpa" }}
+            className="group flex flex-col justify-between rounded-lg border border-hairline bg-card p-8 transition hover:border-[color:var(--primary)]/40 hover:shadow-[var(--shadow-quiet)]"
+          >
+            <div className="grid h-12 w-12 place-items-center rounded-md border border-hairline text-[color:var(--primary)]">
+              <ShieldCheck className="h-5 w-5" />
+            </div>
+            <div className="mt-24">
+              <div className="eyebrow">Department</div>
+              <div className="serif-display mt-2 text-3xl">TPA</div>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Insurance desk — claims and approvals.</p>
+            </div>
+            <div className="mt-8 flex items-center text-xs font-medium text-[color:var(--primary)]">
+              Continue <span className="ml-2 transition-transform group-hover:translate-x-0.5">→</span>
+            </div>
+          </Link>
         </div>
       </section>
     </main>
