@@ -1,0 +1,11 @@
+{
+  "name": "medstar-dbms",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "start": "node backend/server.js",
+    "dev:backend": "npx nodemon backend/server.js"
+  }
+}
